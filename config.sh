@@ -13,11 +13,22 @@ sudo apt update &&
 sudo apt upgrade
 
 ## Instalando pacotes e programas do repositório deb do Ubuntu ##
-sudo apt install python3 python-pip wine git vim tilix zsh tmux build-essential libssl-dev flatpak gnome-software-plugin-flatpak -y  && 
+sudo apt install python3 python-pip git vim tilix zsh tmux build-essential libssl-dev flatpak gnome-software-plugin-flatpak -y  && 
+
+# Instalando o Wine
+sudo dpkg --add-architecture i386 &&
+wget -O - https://dl.winehq.org/wine-builds/winehq.key | sudo apt-key add - &&
+sudo add-apt-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ focal main' &&
+sudo apt update &&
+sudo apt install --install-recommends winehq-stable &&
 
 
 ## Instalando o flat remix
-sudo add-apt-repository ppa:daniruiz/flat-remix -y && sudo apt-get update && sudo apt-get install flat-remix-gtk -y && sudo apt-get install flat-remix -y && sudo apt-get install gnome-tweak-toll &&
+sudo add-apt-repository ppa:daniruiz/flat-remix -y &&
+sudo apt-get update && 
+sudo apt-get install flat-remix-gtk -y &&
+sudo apt-get install flat-remix -y &&
+sudo apt-get install gnome-tweak-toll &&
 
 
 ## Remove o launch da amazon
