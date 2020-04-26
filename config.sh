@@ -28,7 +28,7 @@ sudo add-apt-repository ppa:daniruiz/flat-remix -y &&
 sudo apt-get update && 
 sudo apt-get install flat-remix-gtk -y &&
 sudo apt-get install flat-remix -y &&
-sudo apt-get install gnome-tweak-toll &&
+sudo apt-get install gnome-tweak-tool &&
 
 
 ## Remove o launch da amazon
