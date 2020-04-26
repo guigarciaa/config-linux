@@ -32,10 +32,10 @@ sudo apt-get install gnome-tweak-tool &&
 
 
 ## Remove o launch da amazon
-sudo apt remove ubuntu-web-launchers &&
-sudo rm /usr/share/applications/ubuntu-amazon-default.desktop &&
-sudo rm /usr/share/unity-webapps/userscripts/unity-webapps-amazon/Amazon.user.js &&
-sudo rm /usr/share/unity-webapps/userscripts/unity-webapps-amazon/manifest.json &&
+sudo apt remove ubuntu-web-launchers || true &&
+sudo rm /usr/share/applications/ubuntu-amazon-default.desktop || true &&
+sudo rm /usr/share/unity-webapps/userscripts/unity-webapps-amazon/Amazon.user.js || true &&
+sudo rm /usr/share/unity-webapps/userscripts/unity-webapps-amazon/manifest.json || true &&
 
 ## Softwares do dia a dia 
 sudo snap install insomnia &&
@@ -50,14 +50,17 @@ sudo snap install robo3t-snap;
 git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.7.8 &&
 . $HOME/.asdf/asdf.sh && 
 . $HOME/.asdf/completions/asdf.bash && 
-touch $HOME/.bash_sessions_disable && asdf update &&
-zsh &&
-. $HOME/.asdf/asdf.sh &&
+touch $HOME/.bash_sessions_disable && 
+asdf update &&
+#zsh &&
+#. $HOME/.asdf/asdf.sh;
+
 # append completions to fpath
-fpath=(${ASDF_DIR}/completions $fpath)
+#fpath=(${ASDF_DIR}/completions $fpath)
 # initialise completions with ZSH's compinit
-autoload -Uz compinit
-compinit &&
+#autoload -Uz compinit
+#compinit;
+
 
 
 ## Instalando o plugin do node e sua ultima versão e o ruby
