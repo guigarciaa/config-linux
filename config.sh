@@ -16,12 +16,13 @@ sudo apt update &&
 sudo apt upgrade &&
 
 ## Instalando pacotes e programas do repositório deb do Ubuntu ##
-sudo apt install python git vim tilix zsh tmux curl build-essential libssl-dev flatpak gnome-software-plugin-flatpak -y  && 
+sudo apt install python git vim vim-gtk3 tilix zsh tmux curl build-essential libssl-dev flatpak gnome-software-plugin-flatpak -y  && 
 
 ## Segurança caso algum pacote tenha quebrado
 sudo apt-get install -f;
 
 # Instalando o Wine
+cd ~ &&
 sudo dpkg --add-architecture i386 &&
 wget -O - https://dl.winehq.org/wine-builds/winehq.key | sudo apt-key add - &&
 sudo add-apt-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ focal main' || true &&
@@ -50,26 +51,15 @@ sudo snap install code --classic &&
 sudo snap install postman &&
 sudo snap install dbeaver-ce &&
 sudo snap install chromium &&
-sudo snap install robo3t-snap;
+sudo snap install robo3t-snap
+sudo snap install ruby --classic;
 
-
-## Instalando o versionador de linguagem asdf
-git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.7.8 || true &&
-touch $HOME/.bash_sessions_disable;
-. $HOME/.asdf/asdf.sh;
-. $HOME/.asdf/completions/asdf.bash; 
-asdf update;
-
-## Instalando o plugin do node e sua ultima versão e o ruby
-#bash;
-cd ~ &&
-asdf plugin-add nodejs https://github.com/asdf-vm/asdf-nodejs.git || true &&
-bash ~/.asdf/plugins/nodejs/bin/import-release-team-keyring;
-asdf install nodejs 14.0.0 &&
-asdf global nodejs 14.0.0;
-asdf plugin-add ruby https://github.com/asdf-vm/asdf-ruby.git || true &&
-asdf install ruby 2.7.0 &&
-asdf global ruby 2.7.0;
+## NVM e Node
+wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash;
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh";
+nvm install 12.14.1 &&
+nvm run node --version;
 
 ## Instala o Docker, Kitematic e YADR para usar o  GVim
 #Docker
@@ -87,7 +77,7 @@ unzip Kitematic-0.17.11-Ubuntu.zip &&
 sudo dpkg -i Kitematic-0.17.11_amd64.deb;
 #Yadr
 cd ~ &&
-sh -c "`curl -fsSL https://raw.githubusercontent.com/skwp/dotfiles/master/install.sh `" &&
+sh -c "`curl -fsSL https://raw.githubusercontent.com/skwp/dotfiles/master/install.sh `" || true &&
 cd ~/.yadr && 
 rake install;
 
