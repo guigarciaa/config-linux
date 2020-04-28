@@ -3,7 +3,7 @@
 echo "
 /
 ==================================
-INICIANDO CONFIGURAÇÕES DO UBUNTU!
+INICIANDO CONFIGURAÇÕES DO UBUNTU 18.04!
 ==================================
 /
 "
@@ -16,7 +16,7 @@ sudo apt update &&
 sudo apt upgrade &&
 
 ## Instalando pacotes e programas do repositório deb do Ubuntu ##
-sudo apt install python git vim vim-gtk3 tilix zsh tmux curl build-essential libssl-dev flatpak gnome-software-plugin-flatpak -y  && 
+sudo apt install python git vim vim-gnome tilix zsh tmux curl build-essential libssl-dev &&
 
 ## Segurança caso algum pacote tenha quebrado
 sudo apt-get install -f;
@@ -48,10 +48,10 @@ sudo rm /usr/share/unity-webapps/userscripts/unity-webapps-amazon/manifest.json 
 sudo snap install insomnia &&
 sudo snap install spotify &&
 sudo snap install code --classic &&
-sudo snap install postman &&
 sudo snap install dbeaver-ce &&
 sudo snap install chromium &&
-sudo snap install robo3t-snap
+sudo snap install robo3t-snap &&
+sudo snap install heroku --classic &&
 sudo snap install ruby --classic;
 
 ## NVM e Node
