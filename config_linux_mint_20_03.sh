@@ -21,7 +21,6 @@ sudo apt install python3 git vim tilix zsh tmux curl build-essential libssl-dev 
 ## Segurança caso algum pacote tenha quebrado
 sudo apt-get install -f;
 
-
 ## Instalando o flat remix
 sudo add-apt-repository ppa:daniruiz/flat-remix -y &&
 sudo apt-get update && 
@@ -44,6 +43,7 @@ sudo snap install heroku --classic &&
 sudo snap install postman &&
 sudo snap install simplenote &&
 sudo snap install android-studio --classic &&
+sudo snap install flutter --classic &&
 sudo snap install discord;
 
 ## NVM e Node
@@ -53,8 +53,10 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 nvm install 16.14.0 &&
 nvm run node --version;
 
-## Instala o Docker, Kitematic e YADR para usar o  GVim
-#Docker
+## Instalando pnpm
+curl -f https://get.pnpm.io/v6.16.js | node - add --global pnpm;
+
+## Instala o Docker
 cd ~ &&
 sudo apt-get remove docker docker-engine docker.io containerd runc || true &&
 sudo apt-get update && 
